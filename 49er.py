@@ -32,7 +32,7 @@ def main(stdscr):
          h, v = max(min(h, clampx()), clampx()-cols+1), max(min(v, y), y-rows+1)
 
          for i in range(min(rows, len(lines)-v)):
-            stdscr.addstr(i, 0, lines[v+i][h:h+cols][:-1])
+            stdscr.addstr(i, 0, lines[v+i][:-1][h:h+cols-(i==rows-1)])
          stdscr.move(y-v, clampx()-h)
          stdscr.refresh()
 
